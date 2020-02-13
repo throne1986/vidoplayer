@@ -1,0 +1,17 @@
+
+.js-widget-dialog{
+    position: fixed;
+    z-index: 10002;
+    background: blue;
+    left: 50%;
+    top: 30%;
+    margin: 0 0 0 -120px;
+    width:auto;
+    padding: 10px 20px;
+    border: solid 1px green
+}
+
+video{
+    width: 800px;
+    height: 500px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Playground</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+  <style>
+    #code {
+        width: 150px;
+        height: 100px;
+        background-color: green;
+        cursor: pointer;
+        border: none;
+        color: white;
+    }
+
+  </style>
+
+  <button id="code">Generuj Kody</button>
+</body>
+<script>
+
+$("#code").on('click', function(){
+
+  const ws = new WebSocket('ws://localhost:9898/');
+
+    ws.onopen = function() {
+        console.log('WebSocket Client Connected');
+        ws.send('npm run build');
+    };
+
+    ws.onmessage = function(e) {
+      console.log("Received: '" + e.data + "'");
+    };
+
+})
+
+</script>
+</html>
