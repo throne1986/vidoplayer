@@ -44,25 +44,27 @@
 
                 
                 <div id="adform-outstream" class="vmwp-v1">
-                    <h1>INSERT THE CODe HERE</h1>
-                 
-                 </div>
-                <script>
-                    console.log('Init insertjs code');
-                    (function (w,d,s,o,f,js,fjs) {
-                        
-                        w['JS-Widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
-                        js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-                        js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-                    }(window, document, 'script', 'mw', 'http://localhost/widget/dist/widget.c99aafde2cbb7819f90b.js'));
-                    mw('init', { 
-                        someConfiguration: 448,
-                        app_id:12345
-                        
-                    });
-                    mw('message', 'x');
+                  
+                    <script>
+                        var codeUrl =`widget.c99aafde2cbb7819f90b.js`;
+                        console.log(codeUrl);
+                        (function (w,d,s,o,f,js,fjs) {
+                            
+                            w['JS-Widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+                            js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+                            js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+                        }(window, document, 'script', 'mw', codeUrl));
+                        mw('init', { 
+                            someConfiguration: 448,
+                            app_id:12345
+                            
+                        });
+                        mw('message', 'x');
                     </script>
 
+                 </div>
+                 
+              
 
 
                    

@@ -51,8 +51,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('settings', "SettingController");
 });
 
-Route::group(['middleware' => 'admin'], function () {
+Route::group(['middleware' => ['admin']], function () {
+	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::get('user', ['as' => 'user.destroy', 'uses' => 'UserController@destroy']);
+
 });
 
 Route::group(['middleware' => 'auth'], function () {

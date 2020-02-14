@@ -57,7 +57,7 @@
                             {{ $user->created_at->format('Y-m-d') }}
                           </td>
                           <td class="td-actions text-right">
-                            @if ($user->id != auth()->id())
+                            @if ($user->is_admin)
                               <form action="{{ route('user.destroy', $user) }}" method="post">
                                   @csrf
                                   @method('delete')

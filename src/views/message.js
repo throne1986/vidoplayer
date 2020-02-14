@@ -15,7 +15,7 @@ export function show(text) {
 
     // append elements to container
     container = document.getElementById('adform-outstream');
-    console.log("I am elements motherfucker" + elements[0]);
+    console.log("I am elements ffgfgfgfmotherfucker" + elements[0]);
     console.log("Inserted container" + container);
     while (temporary.children.length > 0) {
         elements.push(temporary.children[0]);

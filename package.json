@@ -13,7 +13,8 @@
         "start": "./node_modules/.bin/webpack-dev-server --open",
         "server": "node app.js",
         "client": "node client.js",
-        "websocketserver": "node websocketserver.js"
+        "websocketserver": "node websocketserver.js",
+        "test": "webpack --env.someUserSpecificId=foo"
     },
     "devDependencies": {
         "@babel/core": "^7.0.0-beta.32",
