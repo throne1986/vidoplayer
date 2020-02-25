@@ -1,0 +1,321 @@
+html,
+body {
+    scroll-behavior: smooth;
+    max-width: 100%;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+
+    margin: 0px;
+    padding: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#video-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#videoplayer {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    display: block;
+    overflow: hidden;
+    border: none;
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+#interactive-layers,
+#interactive-modal, #adcontainer {
+    position: absolute;
+    width: 1024px;
+    height: 576px;
+    top: 0px;
+    left: 0px;
+    -webkit-transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0px auto;
+    justify-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0px 81px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+}
+
+.wp_btn_banner img {
+    width: 100%;
+
+}
+
+.wp_btn_jumpsuit img {
+    width: 100%;
+}
+
+.wp_btn_shoes img {
+    width: 100%;
+}
+
+.wp_btn_banner,
+.wp_btn_shoes,
+.wp_btn_jumpsuit {
+    position: absolute;
+    right: 10px;
+    opacity: 0;
+}
+
+.lous_vouton_banner {
+    position: absolute;
+    display: none;
+}
+
+.list-group-item {
+    text-align: center;
+    background-color: #825151 !important;
+}
+
+.card-link {
+    color: white;
+}
+
+.wp_btn_lik {
+    height: 50px;
+    width: 150px;
+    cursor: pointer;
+    background: red;
+    position: relative;
+    top: 30px;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: white;
+
+}
+
+.wp_btn_lik a {
+    color: white;
+}
+
+.lous_btn {
+    position: absolute;
+    bottom: 13px;
+    left: 32%;
+    width: 33%;
+    height: 13%;
+
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    font-size: 1.3em;
+    font-weight: light;
+    font-family: 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 78px;
+    letter-spacing: -1px;
+    color: white;
+    border: none;
+    /*border-radius: 5px;
+            */
+    background: #de211d0f;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 0 0 rgb(90, 153, 212, .5);
+    box-shadow: 0 0 0 0 rgb(90, 153, 212, .5);
+    -webkit-animation: pulse 1.5s infinite;
+    animation: pulse 1.5s infinite;
+}
+
+
+@-webkit-keyframes pulse {
+    0% {
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+
+    }
+
+    70% {
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+        box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+
+    }
+
+    100% {
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -webkit-box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+        box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+    }
+}
+
+
+@keyframes pulse {
+    0% {
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+
+    }
+
+    70% {
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+        box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+
+    }
+
+    100% {
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -webkit-box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+        box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+
+    }
+
+    70% {
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+        box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+
+    }
+
+    100% {
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -webkit-box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+        box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+    }
+}
+.list-group-item{
+    cursor: pointer;
+    color: white;
+}
+
+#twister_btn{
+    cursor: pointer;
+}
+.bubles{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -1px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background:white;
+}
+
+#bigplay_btn{
+    position: absolute;
+    top: 40%;
+    left: 46%;
+    cursor: pointer;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+}
+
+#bigplay_btn img{
+    width: 100%;
+}
+#video-controls{
+    display: none;
+}
+#video-controls.show{
+  display: block;
+}
+
+#muted-btn{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    display: block;
+    cursor: pointer;
+    margin: 11px;
+    position: absolute;
+    bottom: 0px;
+    left: 50px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: white;
+}
+.hidden{
+    display: none;
+}
+
+
+#muted-btn span#customPlayerMute {
+	display:block;
+}
+#muted-btn span#customPlayerVoice{
+	display:none;
+}
+#muted-btn.muted span#customPlayerMute {
+	display:none;
+}
+#muted-btn.muted  span#customPlayerVoice {
+	display:block;
+}

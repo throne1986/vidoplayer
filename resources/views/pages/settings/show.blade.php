@@ -25,7 +25,7 @@
                 @endif
                 <div class="row">
                   <div class="col-12 text-right">
-                    <a style="color:white" id="code" class="btn btn-sm btn-primary">{{ __('Generate Code') }}</a>
+                    <a href="{{ route('settings.code', ['id' => $settings->id,  'code_id' => $settings->code_id]) }}"style="color:white" id="code" class="btn btn-sm btn-primary">{{ __('Generate Code') }}</a>
                   </div>
                 </div>
                 <div class="table-responsive">
@@ -76,6 +76,9 @@
                           </td>
                           <td>
                             {{ $settings->video_format}}
+                          </td>
+                          <td>
+                            {{ $settings->code_id}}
                           </td>
                           <td>
                             {{ $settings->created_at->format('Y-m-d') }}
@@ -140,20 +143,21 @@
 
   <script>
 
-       var codeGenerateID = document.getElementById('code');
-          codeGenerateID.addEventListener('click', function(){
-          console.log('You clicked something');
-            const ws = new WebSocket('ws://localhost:9898/');
+    // var codeGenerateID = document.getElementById('code');
+    //    codeGenerateID.addEventListener('click', function(e){
+    //      e.preventDefault();
+    //    console.log('You clicked something');
+    //      const ws = new WebSocket('ws://localhost:9898/');
 
-              ws.onopen = function() {
-                  console.log('WebSocket Client Connected');
-                  ws.send('npm run build');
-              };
+    //        ws.onopen = function() {
+    //            console.log('WebSocket Client Connected');
+    //            ws.send('npm run build');
+    //        };
 
-              ws.onmessage = function(e) {
-                console.log("Received: '" + e.data + "'");
-              };
-       })
+    //        ws.onmessage = function(e) {
+    //          console.log("Received: '" + e.data + "'");
+    //        };
+    // })
 
-  </script>
+</script>
 @endsection

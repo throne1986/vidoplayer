@@ -12,7 +12,8 @@ class Setting extends Model
         "domain_url",
         "tag_url",
         "ad_type",
-        "video_format"
+        "video_format",
+        "code_id"
     ];
 
     public function user(){

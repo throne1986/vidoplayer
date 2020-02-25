@@ -10,10 +10,14 @@ module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
 
     return [{
-        entry: './src/main.js',
+        entry: './resources/views/pages/settings/testa.js',
         plugins: [
             // new CleanWebpackPlugin(['dist/*']) for < v2 versions of CleanWebpackPlugin
             new CleanWebpackPlugin(),
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                jQuery: 'jquery'
+              }),
             new HtmlWebpackPlugin({
              title: 'Output Management',
              title: 'Caching',
@@ -21,19 +25,30 @@ module.exports = (env) => {
         ],
         output: {
    
-            filename: 'widget.[contenthash].js',
+            filename: 'bundle.js',
             path: path.resolve(bundleOutputDir),      
         },
+        externals: {
+            jquery: 'jQuery'
+          },
         devServer: {
             contentBase: bundleOutputDir
         },
-        plugins: isDevBuild
-            ? [new webpack.SourceMapDevToolPlugin(), new copyWebpackPlugin([{ from: 'demo/' }])]
-            : [new webpack.optimize.UglifyJsPlugin()],
         module: {
             rules: [
                 { test: /\.html$/i, use: 'html-loader' },
-                { test: /\.css$/i, use: ['style-loader', 'css-loader' + (isDevBuild ? '' : '?minimize')] },
+                {
+                    test: /\.(png|jpe?g|gif|svg)$/i,
+                    use: [
+                      {
+                        loader: 'file-loader',
+                      },
+                    ],
+                  },
+                  {
+                    test: /\.css$/i,
+                    use: ['style-loader', 'css-loader'],
+                  },
                 {
                     test: /\.js$/i, exclude: /node_modules/, use: {
                         loader: 'babel-loader',
@@ -45,6 +60,17 @@ module.exports = (env) => {
                             }]]
                         }
                     }
+                },
+                {
+                    // Exposes jQuery for use outside Webpack build
+                    test: require.resolve('jquery'),
+                    use: [{
+                        loader: 'expose-loader',
+                        options: 'jQuery'
+                    }, {
+                        loader: 'expose-loader',
+                        options: '$'
+                    }]
                 }
             ]
         }

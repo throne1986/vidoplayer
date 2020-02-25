@@ -63,7 +63,7 @@
                             {{ $setting->id }}
                           </td>
                           <td>
-                            {{ $setting->name }}
+                          <a href="{{ route('settings.show', $setting->id)}}"> {{ $setting->name }}</a>
                           </td>
                           <td>
                             {{ $setting->domain_url }}

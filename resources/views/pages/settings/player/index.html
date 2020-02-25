@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lous Vouiton Animation</title>
+    <link rel="stylesheet" href="http://localhost/videomill-dashboard/resources/views/pages/settings/player/css/player.css">
+    <link rel="stylesheet" href="http://localhost/videomill-dashboard/resources/views/pages/settings/player/css/main.css">
+    <link rel="stylesheet" href="http://localhost/videomill-dashboard/resources/views/pages/settings/player/css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="icon" type="image/png" href="https://www.interactive-video.videomill.pl/images/fav_videomill_1.png">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <!-- <script type="text/javascript" src="../codes/rMHHkmjK6.js"></script> -->
+    <script type="text/javascript" src="http://localhost/videomill-dashboard/resources/views/pages/settings/player/js/ads.js"></script>
+    <script type="text/javascript" src="http://localhost/videomill-dashboard/resources/views/pages/settings/player/js/video_player.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+        <!-- GPT Companion Code -->
+    <!-- Initialize the tagging library -->
+    <script type='text/javascript'>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function() {
+          var gads = document.createElement('script');
+          gads.async = true;
+          gads.type = 'text/javascript';
+          gads.src = 'https://www.googletagservices.com/tag/js/gpt.js';
+          var node = document.getElementsByTagName('script')[0];
+          node.parentNode.insertBefore(gads, node);
+        })();
+      </script>
+ 
+      <!-- Register your companion slots -->
+      <script type='text/javascript'>
+        googletag.cmd.push(function() {
+          // Supply YOUR_NETWORK/YOUR_UNIT_PATH in place of 6062/iab_vast_samples.
+          googletag.defineSlot('/6062/iab_vast_samples', [728, 90], 'companionDiv')
+              .addService(googletag.companionAds())
+              .addService(googletag.pubads());
+          googletag.companionAds().setRefreshUnfilledSlots(true);
+          googletag.pubads().enableVideoAds();
+          googletag.enableServices();
+        });
+      </script>
+
+</head>
+
+<body style="overflow: hidden">
+
+    <div canplay id="video-block" class="js-widget-dialog">
+        <div id="video-container">
+            <video id="videoplayer" muted>
+                    <source src="https://wp-iframe.videomill.co/vpaidexamples/videos//vmerce.mp4"></source>
+                    <source src="https://wp-iframe.videomill.co/vpaidexamples/videos//vmerce.mp4"></source>
+            </video>
+
+            <div id="interactive-layers">
+
+            </div>
+
+            <div id="adcontainer">
+                
+            </div>
+
+            <div id="bigplay_btn">
+                <img src="http://localhost/videomill-dashboard/resources/views/pages/settings/player/images/play_otwarty.svg">
+            </div>
+
+            <div id="vast-skip">skip</div>
+         
+        </div>
+        <div id="video-controls" style="position: relative">
+            <div id="seek-bar-container">
+                <div id="seek-bar">
+                    <div id="current-time">
+                    </div>
+                </div>
+            </div>
+
+            <div id="pause-play-button">
+
+                <span id="play">
+                        <svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.4</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="#000000" stroke="#ffffff" d="M18.7,1L18.8,1L81.2,49.5L18.8,99Z" fill-opacity="0" stroke-width="3" stroke-linejoin="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linejoin: round;"></path></svg>
+                </span>
+                <span id="pause">
+                    <svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.4</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="#000000" stroke="#ffffff" d="M22.7,0.5V98.5M77.3,0.5V98.5" fill-opacity="0" stroke-width="3" stroke-linejoin="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linejoin: round;"></path></svg>
+                </span>
+        
+            </div>
+
+            <div id="muted-btn">
+                    <span id="customPlayerMute">
+                        <svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.4</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="#000000" stroke="#ffffff" d="M82.6,78.4V99.5L32.3,68.9L32.3,68.9H6.8V30.900000000000006H32.3L32.3,30.900000000000006L82.6,0.5V23.4M69.3,36.2L96.19999999999999,63.7M69,63.4L96.5,36.5" fill-opacity="0" stroke-width="3" stroke-linejoin="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linejoin: round;"></path></svg>
+                   </span>
+                    <span id="customPlayerVoice">
+                            <svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.4</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="#000000" stroke="#ffffff" d="M82.6,0.5V50V99.5L32.3,68.9L32.3,68.9H6.8V30.900000000000006H32.3L32.3,30.900000000000006L82.6,0.5Z" fill-opacity="0" stroke-width="3" stroke-linejoin="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linejoin: round;"></path></svg>
+                    </span>
+                </div>
+
+            <span id="fullscreen_video">
+                    <svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.4</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="#000000" stroke="#ffffff" d="M1,40.7V13.700000000000003H38.2M99,40.7V13.700000000000003H61.8M61.8,86.3H99V59.3M1,59.3V86.3H38.2" fill-opacity="0" stroke-width="3" stroke-linejoin="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linejoin: round;"></path></svg>
+            </span>
+
+
+        </div>
+        
+    </div>
+    
+    <div id="companionDiv" style="text-align: center; display: none;">
+            <script type="text/javascript">
+              // Using the command queue to enable asynchronous loading.
+              // The unit will not actually display now - it will display when
+              // the video player is displaying the ads.
+              googletag.cmd.push(function() { googletag.display('companionDiv'); });
+            </script>
+    </div>
+      
+    <div id="console" style="display: none;">
+                Welcome to IMA HTML5 SDK Demo!
+    </div>
+    </section>
+    <!-- <script src="js/videoplayer.js"></script> -->
+    <script src="http://localhost/videomill-dashboard/resources/views/pages/settings/player/js/main.js"></script>
+    <script src="http://localhost/videomill-dashboard/resources/views/pages/settings/player/js/player.js"></script>
+    <!-- <script src="js/iframe.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </script>
+
+
+<script type="text/javascript">
+        var application = null;
+      
+        window.onload = function() {
+          application = new Application();
+        };
+
+        $(document).ready(function () {
+
+
+$("#pause-play-button").on("click", function () {
+
+    if ($("#video-block video")[0].paused == false) {
+        console.log('False video is not paused')
+        $("#video-block video")[0].play();
+        $("#pause").css("display", 'none');
+        $("#bigplay_btn").css("display", 'none');
+        $("#play").css("display", "block");
+    } else {
+        console.log('True video is paused')
+        $("#video-block video")[0].pause();
+        $("#pause").css("display", 'block');
+        $("#play").css("display", "none");
+    }
+});
+
+$("#pause-play-button").on("click", function () {
+    TweenMax.set('.opened', {clearProps: 'all'});
+    if($("#video-block video")[0].paused==true) {
+        $("#video-block video")[0].play();
+    } else {
+        $("#video-block video")[0].pause();
+    }
+});
+
+
+$("#seek-bar").each(function () {
+    $(this).on("mousedown", function (e) {
+        $("#videoplayer").removeClass("ended");
+        var posX = $(this).offset().left,
+            posY = $(this).offset().top;
+        $(this).parent().parent().parent().find("video")[0].currentTime = $(this).parent().parent().parent().find("video")[0].duration * ((e.pageX - posX) / $(this).width());
+    });
+});
+
+$(window).resize(resizeWindow);
+$(window).resize();
+})
+
+function resizeWindow() {
+$("#video-container").css("width", "auto");
+$("#video-container").css("height", "auto");
+
+$("#video-block").css("width", "auto");
+$("#video-block").css("height", "auto");
+
+$("#video-container").height(($("#video-container").width() * 576) / 1024);
+
+if ($("#interactive-layers").height(($("#interactive-layers").width() * 576) / 1024)) {
+    $("#interactive-layers").css(
+        "transform",
+        "scale(" + $("#videoplayer").width() / 1024 + ")"
+    );
+}
+if ($("#adcontainer").height(($("#adcontainer").width() * 576) / 1024)) {
+    $("#adcontainer").css(
+        "transform",
+        "scale(" + $("#videoplayer").width() / 1024 + ")"
+    );
+}
+
+if ($("#interactive-modal").height(($("#interactive-modal").width() * 576) / 1024)) {
+    $("#interactive-modal").css(
+        "transform",
+        "scale(" + $("#videoplayer").width() / 1024 + ")"
+    );
+}
+$("#video-block").height(($("#video-block").width() * 576) / 1024);
+
+}
+
+function onPlay() {
+$("#videoplayer").removeClass("ended");
+$("#video-block").addClass("playing");
+$("#video-block").removeClass("paused");
+$("#play").css("display", "none");
+$("#pause").css("display", 'block');
+
+}
+
+function onPause() {
+$("#videoplayer").removeClass("ended");
+$("#video-block").addClass("paused");
+$("#video-block").removeClass("playing");
+}
+
+function onEnded() {
+$("#videoplayer").addClass("ended");
+$("#pause").css("display", 'none');
+$("#play").css("display", "block");
+}
+
+function onUpdateTime() {
+if ($(this)[0].duration) {
+    $(this).parent().parent().find("#current-time").css("width", ($(this)[0].currentTime * 100 / $(this)[0].duration) + "%");
+}
+}
+
+function videoReady() {
+$("#videoplayer").css("opacity", "1");
+$("#video-block").addClass("canplay");
+$("#video-block").parent().addClass("paused");
+}
+
+
+
+
+
+    </script>
+</body>
+</html>

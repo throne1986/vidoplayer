@@ -18,11 +18,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 // Route::resource('settings', "SettingController");
-
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('table-list', function () {
 		return view('pages.table_list');
 	})->name('table');
+
+	// Route::get('code', function () {
+	// 	return view('pages.settings.code');
+	// })->name('code');
 
 	Route::get('typography', function () {
 		return view('pages.typography');
@@ -48,6 +51,10 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('pages.upgrade');
 	})->name('upgrade');
 
+	// Route::get('settings/code', 'SettingController@code');
+	Route::get('settings/code/{id}/{code_id}', ['as' => 'settings.code', 'uses' => 'SettingController@code']);
+	
+	// Route::get('/settings/code/{code_id}', 'MyController@code')->name('settings.code');
 	Route::resource('settings', "SettingController");
 });
 
