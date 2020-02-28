@@ -1,181 +1,241 @@
-// Copyright 2013 Google Inc. All Rights Reserved.
-// You may study, modify, and use this example for any purpose.
-// Note that this example is provided "as is", WITHOUT WARRANTY
-// of any kind either expressed or implied.
+// Copyright 2017 Google Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-/**
- * Shows how to use the IMA SDK to request and display ads.
- */
-
-var adsManager = null;
-var Ads = function(application, videoPlayer) {
-  this.application_ = application;
-  this.videoPlayer_ = videoPlayer;
-  this.customClickDiv_ = document.getElementById('customClick');
-  this.contentCompleteCalled_ = false;
-  google.ima.settings.setVpaidMode(google.ima.ImaSdkSettings.VpaidMode.ENABLED);
-
-  var self = this;
+console.log('Ads Loaded');
 
 
-  this.adDisplayContainer_ =
-      new google.ima.AdDisplayContainer(
-          this.videoPlayer_.adContainer,
-          this.videoPlayer_.contentPlayer,
-          this.customClickDiv_);
-  this.adsLoader_ = new google.ima.AdsLoader(this.adDisplayContainer_);
-  this.adsManager_ = null;
 
-  this.adsLoader_.addEventListener(
+//tak chcials
+var adsManager;
+var adsLoader;
+var adDisplayContainer;
+var playButton;
+var videoContent;
+var adsInitialized;
+var autoplayAllowed;
+var autoplayRequiresMuted;
+
+export function initDesktopAutoplayExample() {
+  videoContent = document.getElementById('videoplayer');
+  console.log(videoContent);
+
+  playButton = document.getElementById('pause-play-button');
+  playButton.addEventListener('click', () => {
+    // Initialize the container. Must be done via a user action where autoplay
+    // is not allowed.
+    adDisplayContainer.initialize();
+    adsInitialized = true;
+    videoContent.load();
+    playAds();
+  });
+  setUpIMA();
+  // Check if autoplay is supported.
+  checkAutoplaySupport();
+}
+
+function checkAutoplaySupport() {
+  // Test for autoplay support with our content player.
+  var playPromise = videoContent.play();
+  if (playPromise !== undefined) {
+    playPromise.then(onAutoplayWithSoundSuccess).catch(onAutoplayWithSoundFail);
+  }
+}
+
+function onAutoplayWithSoundSuccess() {
+  // If we make it here, unmuted autoplay works.
+  videoContent.pause();
+  autoplayAllowed = true;
+  autoplayRequiresMuted = false;
+  autoplayChecksResolved();
+}
+
+function onAutoplayWithSoundFail() {
+  // Unmuted autoplay failed. Now try muted autoplay.
+  checkMutedAutoplaySupport();
+}
+
+function checkMutedAutoplaySupport() {
+  videoContent.volume = 0;
+  videoContent.muted = true;
+  var playPromise = videoContent.play();
+  if (playPromise !== undefined) {
+    playPromise.then(onMutedAutoplaySuccess).catch(onMutedAutoplayFail);
+  }
+}
+
+function onMutedAutoplaySuccess() {
+  // If we make it here, muted autoplay works but unmuted autoplay does not.
+  videoContent.pause();
+  autoplayAllowed = true;
+  autoplayRequiresMuted = true;
+  autoplayChecksResolved();
+}
+
+function onMutedAutoplayFail() {
+  // Both muted and unmuted autoplay failed. Fall back to click to play.
+  videoContent.volume = 1;
+  videoContent.muted = false;
+  autoplayAllowed = false;
+  autoplayRequiresMuted = false;
+  autoplayChecksResolved();
+}
+
+function setUpIMA() {
+  // Create the ad display container.
+  createAdDisplayContainer();
+  // Create ads loader.
+  adsLoader = new google.ima.AdsLoader(adDisplayContainer);
+  // Listen and respond to ads loaded and error events.
+  adsLoader.addEventListener(
       google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED,
-      this.onAdsManagerLoaded_,
-      false,
-      this);
-  this.adsLoader_.addEventListener(
+      onAdsManagerLoaded,
+      false);
+  adsLoader.addEventListener(
       google.ima.AdErrorEvent.Type.AD_ERROR,
-      this.onAdError_,
-      false,
-      this);
-};
+      onAdError,
+      false);
 
-// On iOS and Android devices, video playback must begin in a user action.
-// AdDisplayContainer provides a initialize() API to be called at appropriate
-// time.
-// This should be called when the user clicks or taps.
-Ads.prototype.initialUserAction = function() {
-  this.adDisplayContainer_.initialize();
-  this.videoPlayer_.contentPlayer.load();
-};
+  // An event listener to tell the SDK that our content video
+  // is completed so the SDK can play any post-roll ads.
+  videoContent.onended = contentEndedListener;
+}
 
-Ads.prototype.requestAds = function(adTagUrl) {
+function contentEndedListener() {
+  videoContent.onended = null;
+  if (adsLoader) {
+    adsLoader.contentComplete();
+  }
+}
+
+function autoplayChecksResolved() {
+  // Request video ads.
   var adsRequest = new google.ima.AdsRequest();
-  adsRequest.adTagUrl = adTagUrl;
-  adsRequest.linearAdSlotWidth = this.videoPlayer_.width;
-  adsRequest.linearAdSlotHeight = this.videoPlayer_.height;
-  adsRequest.nonLinearAdSlotWidth = this.videoPlayer_.width;
-  adsRequest.nonLinearAdSlotHeight = this.videoPlayer_.height;
-  this.adsLoader_.requestAds(adsRequest);
-};
+  adsRequest.adTagUrl = 'https://pubads.g.doubleclick.net/gampad/ads?' +
+      'sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&' +
+      'impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&' +
+      'cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=';
 
-Ads.prototype.pause = function() {
-  if (this.adsManager_) {
-    this.adsManager_.pause();
+  // Specify the linear and nonlinear slot sizes. This helps the SDK to
+  // select the correct creative if multiple are returned.
+  adsRequest.linearAdSlotWidth = 640;
+  adsRequest.linearAdSlotHeight = 400;
+
+  adsRequest.nonLinearAdSlotWidth = 640;
+  adsRequest.nonLinearAdSlotHeight = 150;
+
+  adsRequest.setAdWillAutoPlay(autoplayAllowed);
+  adsRequest.setAdWillPlayMuted(autoplayRequiresMuted);
+  adsLoader.requestAds(adsRequest);
+}
+
+function createAdDisplayContainer() {
+  // We assume the adContainer is the DOM id of the element that will house
+  // the ads.
+  adDisplayContainer = new google.ima.AdDisplayContainer(
+      document.getElementById('adcontainer'), videoContent);
+}
+
+function playAds() {
+  try {
+    if (!adsInitialized) {
+      adDisplayContainer.initialize();
+      adsInitialized = true;
+    }
+    // Initialize the ads manager. Ad rules playlist will start at this time.
+    adsManager.init(640, 360, google.ima.ViewMode.NORMAL);
+    // Call play to start showing the ad. Single video and overlay ads will
+    // start at this time; the call will be ignored for ad rules.
+    adsManager.start();
+  } catch (adError) {
+    // An error may be thrown if there was a problem with the VAST response.
+    videoContent.play();
   }
-};
+}
 
-Ads.prototype.resume = function() {
-  if (this.adsManager_) {
-    this.adsManager_.resume();
-  }
-};
-
-Ads.prototype.resize = function(width, height) {
-  if (this.adsManager_) {
-    this.adsManager_.resize(width, height, google.ima.ViewMode.FULLSCREEN);
-  }
-};
-
-Ads.prototype.contentEnded = function() {
-  this.contentCompleteCalled_ = true;
-  this.adsLoader_.contentComplete();
-};
-
-Ads.prototype.onAdsManagerLoaded_ = function(adsManagerLoadedEvent) {
-  this.application_.log('Ads loaded.');
+function onAdsManagerLoaded(adsManagerLoadedEvent) {
+  // Get the ads manager.
   var adsRenderingSettings = new google.ima.AdsRenderingSettings();
   adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
-  this.adsManager_ = adsManagerLoadedEvent.getAdsManager(
-      this.videoPlayer_.contentPlayer, adsRenderingSettings);
-      adsManager = this.adsManager_;
-  this.startAdsManager_(this.adsManager_);
-};
+  // videoContent should be set to the content video element.
+  adsManager = adsManagerLoadedEvent.getAdsManager(
+      videoContent, adsRenderingSettings);
+  // Mute the ad if doing muted autoplay.
+  const adVolume = (autoplayAllowed && autoplayRequiresMuted) ? 0 : 1;
+  adsManager.setVolume(adVolume);
 
-Ads.prototype.startAdsManager_ = function(adsManager) {
-  if (adsManager.isCustomClickTrackingUsed()) {
-    this.customClickDiv_.style.display = 'table';
-  }
-  // Attach the pause/resume events.
-  adsManager.addEventListener(
-      google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED,
-      this.onContentPauseRequested_,
-      false,
-      this);
-  adsManager.addEventListener(
-      google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED,
-      this.onContentResumeRequested_,
-      false,
-      this);
-  // Handle errors.
+  // Add listeners to the required events.
   adsManager.addEventListener(
       google.ima.AdErrorEvent.Type.AD_ERROR,
-      this.onAdError_,
-      false,
-      this);
-  var events = [google.ima.AdEvent.Type.ALL_ADS_COMPLETED,
-                google.ima.AdEvent.Type.CLICK,
-                google.ima.AdEvent.Type.COMPLETE,
-                google.ima.AdEvent.Type.FIRST_QUARTILE,
-                google.ima.AdEvent.Type.LOADED,
-                google.ima.AdEvent.Type.MIDPOINT,
-                google.ima.AdEvent.Type.PAUSED,
-                google.ima.AdEvent.Type.STARTED,
-                google.ima.AdEvent.Type.THIRD_QUARTILE];
-  for (var index in events) {
-    adsManager.addEventListener(
-        events[index],
-        this.onAdEvent_,
-        false,
-        this);
-  }
+      onAdError);
+  adsManager.addEventListener(
+      google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED,
+      onContentPauseRequested);
+  adsManager.addEventListener(
+      google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED,
+      onContentResumeRequested);
+  adsManager.addEventListener(
+      google.ima.AdEvent.Type.ALL_ADS_COMPLETED,
+      onAdEvent);
 
-  var initWidth, initHeight;
-  if (this.application_.fullscreen) {
-    initWidth = this.application_.fullscreenWidth;
-    initHeight = this.application_.fullscreenHeight;
+  // Listen to any additional events, if necessary.
+  adsManager.addEventListener(
+      google.ima.AdEvent.Type.LOADED,
+      onAdEvent);
+  adsManager.addEventListener(
+      google.ima.AdEvent.Type.STARTED,
+      onAdEvent);
+  adsManager.addEventListener(
+      google.ima.AdEvent.Type.COMPLETE,
+      onAdEvent);
+
+
+  if (autoplayAllowed) {
+    playAds();
   } else {
-    initWidth = this.videoPlayer_.width;
-    initHeight = this.videoPlayer_.height;
+    playButton.style.display = 'block';
   }
-  adsManager.init(
-    initWidth,
-    initHeight,
-    google.ima.ViewMode.NORMAL);
+}
 
-  adsManager.start();
-};
-
-Ads.prototype.onContentPauseRequested_ = function() {
-  this.application_.pauseForAd();
-  this.application_.setVideoEndedCallbackEnabled(false);
-};
-
-Ads.prototype.onContentResumeRequested_ = function() {
-  this.application_.setVideoEndedCallbackEnabled(true);
-  // Without this check the video starts over from the beginning on a
-  // post-roll's CONTENT_RESUME_REQUESTED
-  if (!this.contentCompleteCalled_) {
-    this.application_.resumeAfterAd();
+function onAdEvent(adEvent) {
+  // Retrieve the ad from the event. Some events (e.g. ALL_ADS_COMPLETED)
+  // don't have ad object associated.
+  var ad = adEvent.getAd();
+  switch (adEvent.type) {
+    case google.ima.AdEvent.Type.LOADED:
+      // This is the first event sent for an ad - it is possible to
+      // determine whether the ad is a video ad or an overlay.
+      if (!ad.isLinear()) {
+        videoContent.play();
+      }
+      break;
   }
-};
+}
 
-Ads.prototype.onAdEvent_ = function(adEvent) {
-  this.application_.log('Ad event: ' + adEvent.type);
+function onAdError(adErrorEvent) {
+  // Handle the error logging.
+  console.log(adErrorEvent.getError());
+  adsManager.destroy();
+  // Fall back to playing content.
+  videoContent.play();
+}
 
-  if (adEvent.type == google.ima.AdEvent.Type.CLICK) {
-    this.application_.adClicked();
-  } else if (adEvent.type == google.ima.AdEvent.Type.LOADED) {
-    var ad = adEvent.getAd();
-    if (!ad.isLinear())
-    {
-      this.onContentResumeRequested_();
-    }
-  }
-};
+function onContentPauseRequested() {
+  videoContent.pause();
+  videoContent.onended = null;
+}
 
-Ads.prototype.onAdError_ = function(adErrorEvent) {
-  this.application_.log('Ad error: ' + adErrorEvent.getError().toString());
-  if (this.adsManager_) {
-    this.adsManager_.destroy();
-  }
-  this.application_.resumeAfterAd();
-};
+function onContentResumeRequested() {
+  videoContent.play();
+  videoContent.onended = contentEndedListener;
+}

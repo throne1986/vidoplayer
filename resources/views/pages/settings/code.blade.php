@@ -18,7 +18,7 @@
       <pre><code class="xml">
         <span class="hljs-comment">&lt;!-- Videoplayer Integration Code --&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span>
-                 &ltdiv id="adform-outstream" class="vmwp-v1" &gt
+                 &ltdiv id="videomill-outstream" class="vmwp-v1" &gt
                     (function (w,d,s,o,f,js,fjs) {
                                 w['JS-Widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
                                 js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];

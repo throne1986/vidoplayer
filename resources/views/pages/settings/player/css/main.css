@@ -22,10 +22,14 @@ body {
     background-color: transparent;
   } */
   
-  #adform-outstream.show {
+  /* #adform-outstream.show {
     height: auto;
     background-color: yellow;
-  }
+  } */
+/* 
+  #adform-outstream{
+      display:none;
+  } */
 
 #video-container {
     width: 100%;

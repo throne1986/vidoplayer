@@ -3,6 +3,7 @@ const webpack = require('webpack');
 var copyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 const bundleOutputDir = './dist';
 
@@ -21,7 +22,9 @@ module.exports = (env) => {
             new HtmlWebpackPlugin({
              title: 'Output Management',
              title: 'Caching',
-            })
+             inlineSource: '.(js|css)$' // embed all javascript and css inline
+            }),
+            new HtmlWebpackInlineSourcePlugin()
         ],
         output: {
    

@@ -1,104 +1,117 @@
-<html>
-<head>
-    <title>Demo page of the widget</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    
-</head>
-<body style="overflow: scroll;">
-    <div class="row">
-        <div class="large-8 medium-12 small-12 large-offset-2 columns" style="margin-top:20px;">
-            <div class="row">
-                <div class="large-4 medium-4 small-12 columns">
-                    <!-- <img src="img/logo.png" style="max-width:160px;margin-top:3px;"> -->
-                </div>
-                <div class="large-8 medium-8 small-12 columns">
-                    <h1><small>Out-Stream Video Format</small></h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr/>
-    <div class="row" id="main_row">
-        <div class="large-8 large-offset-2 columns">
-            <h4>Lipsum article</h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed magna ipsum, maximus ut velit eu, commodo imperdiet diam. Proin quis nulla rhoncus, tempus enim ac, dignissim ex. Donec sit amet fermentum orci. Donec a velit sem. Integer id posuere tellus.
-                Nulla ac mi sit amet dolor viverra ullamcorper. Vestibulum gravida rutrum nibh, vel vestibulum justo viverra quis. Curabitur ut ligula ac elit aliquam molestie non nec eros. Morbi vulputate vitae mauris eu imperdiet. Etiam ultrices aliquam
-                tempor. Morbi eu eros ornare, molestie nunc vitae, vulputate velit. Aliquam aliquam hendrerit ante vel bibendum. In bibendum diam felis, in condimentum felis egestas sed. Nullam accumsan sed felis sit amet aliquam. Proin eget efficitur
-                erat. Nam convallis elit urna, sed ullamcorper enim lacinia a.
-            </p>
-            <p>
-                Cras at tempus felis. Vivamus at ultricies massa. Aenean vel mi ut lectus ultrices scelerisque. Nulla cursus malesuada posuere. Donec eros ipsum, pharetra non mauris egestas, feugiat egestas ligula. Nulla rhoncus enim ac mauris lacinia pretium. Suspendisse
-                tristique eget magna laoreet consequat. Nulla eget euismod massa. Nulla facilisi. Maecenas egestas dapibus malesuada. Suspendisse laoreet ullamcorper ex porta varius. Aliquam erat volutpat. Aliquam erat volutpat. Vivamus nec dolor turpis.
-                Pellentesque metus diam, placerat ac faucibus in, porttitor non ante. Etiam hendrerit magna eu felis pellentesque mollis.
-            </p>
-            <p>
-                Quisque efficitur, urna sit amet fermentum auctor, quam est lacinia augue, ac congue ex lorem ac enim. Aenean sit amet ullamcorper dui, at faucibus ipsum. Donec tempus diam ut sagittis consequat. Donec eu fermentum neque. Pellentesque commodo ut libero
-                eu posuere. Duis vitae enim quis ex gravida faucibus. Suspendisse nisi neque, sodales nec augue quis, tempor laoreet velit. Donec mi eros, sollicitudin vitae metus sit amet, bibendum pulvinar augue. Nulla venenatis eleifend scelerisque.
-                Donec hendrerit dapibus dolor et vulputate. In sed nunc id nulla varius scelerisque. Donec tincidunt lectus eget diam ullamcorper, sit amet molestie arcu semper.
-            </p>
-            <p>
-                Maecenas imperdiet, nisi ut feugiat elementum, nulla mauris viverra velit, tincidunt ullamcorper mi magna sed sem. Praesent ornare sapien sit amet libero sagittis viverra sit amet finibus nisi. Duis eget luctus arcu, consectetur convallis ante. Suspendisse
-                finibus lacus in nisl iaculis euismod eget sed justo. Etiam euismod, lacus sed blandit semper, est risus rutrum ipsum, eget vulputate tellus purus a tortor. Curabitur sollicitudin neque et augue commodo, a fermentum lacus venenatis. Aliquam
-                venenatis facilisis justo ac venenatis. Vivamus lobortis nisl id orci consequat, eget elementum leo tincidunt. Proin sit amet metus mi.
-            </p>
-            <p>
-                Pellentesque a interdum mauris. Curabitur eget lacus vitae eros pellentesque tincidunt sit amet vitae nulla. Donec quis mollis augue, facilisis venenatis metus. Nam molestie velit ligula, in porttitor nisl euismod non. Ut varius venenatis augue, sit amet
-                dignissim ligula mattis nec. Duis dignissim est non dictum elementum. Aenean vel sem bibendum, consectetur massa quis, <b>dignissim massa. Praesent rutrum porttitor diam, ac ultrices lectus efficitur consectetur.</b>
-            </p>
 
-            <div id="adform-outstream" style="height:0;overflow:hidden;" class="vmwp-v1_test">
-                  
-                <script>
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Out-Stream In-View</title>
+    <!-- <link rel="stylesheet" href="css/foundation.css" /> -->
+    <!-- <script src="js/vendor/modernizr.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body style=" overflow: scroll;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12">
+                        <h1><small>Out-Stream Video Format</small></h1>
+             </div>
+        </div>
+        <hr/>
+        <div class="row" id="main_row">
+            <div class="col-8">
+                <h4>Lipsum article</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed magna ipsum, maximus ut velit eu, commodo imperdiet diam. Proin quis nulla rhoncus, tempus enim ac, dignissim ex. Donec sit amet fermentum orci. Donec a velit sem. Integer id posuere tellus.
+                    Nulla ac mi sit amet dolor viverra ullamcorper. Vestibulum gravida rutrum nibh, vel vestibulum justo viverra quis. Curabitur ut ligula ac elit aliquam molestie non nec eros. Morbi vulputate vitae mauris eu imperdiet. Etiam ultrices aliquam
+                    tempor. Morbi eu eros ornare, molestie nunc vitae, vulputate velit. Aliquam aliquam hendrerit ante vel bibendum. In bibendum diam felis, in condimentum felis egestas sed. Nullam accumsan sed felis sit amet aliquam. Proin eget efficitur
+                    erat. Nam convallis elit urna, sed ullamcorper enim lacinia a.
+                </p>
+                <p>
+                    Cras at tempus felis. Vivamus at ultricies massa. Aenean vel mi ut lectus ultrices scelerisque. Nulla cursus malesuada posuere. Donec eros ipsum, pharetra non mauris egestas, feugiat egestas ligula. Nulla rhoncus enim ac mauris lacinia pretium. Suspendisse
+                    tristique eget magna laoreet consequat. Nulla eget euismod massa. Nulla facilisi. Maecenas egestas dapibus malesuada. Suspendisse laoreet ullamcorper ex porta varius. Aliquam erat volutpat. Aliquam erat volutpat. Vivamus nec dolor turpis.
+                    Pellentesque metus diam, placerat ac faucibus in, porttitor non ante. Etiam hendrerit magna eu felis pellentesque mollis.
+                </p>
+                <p>
+                    Quisque efficitur, urna sit amet fermentum auctor, quam est lacinia augue, ac congue ex lorem ac enim. Aenean sit amet ullamcorper dui, at faucibus ipsum. Donec tempus diam ut sagittis consequat. Donec eu fermentum neque. Pellentesque commodo ut libero
+                    eu posuere. Duis vitae enim quis ex gravida faucibus. Suspendisse nisi neque, sodales nec augue quis, tempor laoreet velit. Donec mi eros, sollicitudin vitae metus sit amet, bibendum pulvinar augue. Nulla venenatis eleifend scelerisque.
+                    Donec hendrerit dapibus dolor et vulputate. In sed nunc id nulla varius scelerisque. Donec tincidunt lectus eget diam ullamcorper, sit amet molestie arcu semper.
+                </p>
+                <p>
+                    Maecenas imperdiet, nisi ut feugiat elementum, nulla mauris viverra velit, tincidunt ullamcorper mi magna sed sem. Praesent ornare sapien sit amet libero sagittis viverra sit amet finibus nisi. Duis eget luctus arcu, consectetur convallis ante. Suspendisse
+                    finibus lacus in nisl iaculis euismod eget sed justo. Etiam euismod, lacus sed blandit semper, est risus rutrum ipsum, eget vulputate tellus purus a tortor. Curabitur sollicitudin neque et augue commodo, a fermentum lacus venenatis. Aliquam
+                    venenatis facilisis justo ac venenatis. Vivamus lobortis nisl id orci consequat, eget elementum leo tincidunt. Proin sit amet metus mi.
+                </p>
+                <p>
+                    Pellentesque a interdum mauris. Curabitur eget lacus vitae eros pellentesque tincidunt sit amet vitae nulla. Donec quis mollis augue, facilisis venenatis metus. Nam molestie velit ligula, in porttitor nisl euismod non. Ut varius venenatis augue, sit amet
+                    dignissim ligula mattis nec. Duis dignissim est non dictum elementum. Aenean vel sem bibendum, consectetur massa quis, <b>dignissim massa. Praesent rutrum porttitor diam, ac ultrices lectus efficitur consectetur.</b>
+                </p>
         
-                    (function (w,d,s,o,f,js,fjs) {
-                        
-                        w['JS-Widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
-                        js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-                        js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-                    }(window, document, 'script', 'mw', 'http://localhost/videomill-dashboard/dist/bundle.js'));
-                    mw('init', { 
-                        someConfiguration: 448,
-                        app_id:12345
-                        
-                    });
-                    mw('message', 'x');
-                </script>
+                <div id="adform-outstream" style="height:0;overflow:hidden;" class="vmwp-v1_test">
+                    
+                    <script>
+            
+                        (function (w,d,s,o,f,js,fjs) {
+                            
+                            w['JS-Widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+                            js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+                            js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+                        }(window, document, 'script', 'mw', 'http://localhost/player/dist/bundle.js'));
+                        mw('init', { 
+                            someConfiguration: 448,
+                            app_id:12345
+                            
+                        });
+                        mw('message', 'x');
+                    </script>
+                </div>
+        
+                <p>
+                    Cras at tempus felis. Vivamus at ultricies massa. Aenean vel mi ut lectus ultrices scelerisque. Nulla cursus malesuada posuere. Donec eros ipsum, pharetra non mauris egestas, feugiat egestas ligula. Nulla rhoncus enim ac mauris lacinia pretium. Suspendisse
+                    tristique eget magna laoreet consequat. Nulla eget euismod massa. Nulla facilisi. Maecenas egestas dapibus malesuada. Suspendisse laoreet ullamcorper ex porta varius. Aliquam erat volutpat. Aliquam erat volutpat. Vivamus nec dolor turpis.
+                    Pellentesque metus diam, placerat ac faucibus in, porttitor non ante. Etiam hendrerit magna eu felis pellentesque mollis.
+                </p>
+                <p>
+                    Quisque efficitur, urna sit amet fermentum auctor, quam est lacinia augue, ac congue ex lorem ac enim. Aenean sit amet ullamcorper dui, at faucibus ipsum. Donec tempus diam ut sagittis consequat. Donec eu fermentum neque. Pellentesque commodo ut libero
+                    eu posuere. Duis vitae enim quis ex gravida faucibus. Suspendisse nisi neque, sodales nec augue quis, tempor laoreet velit. Donec mi eros, sollicitudin vitae metus sit amet, bibendum pulvinar augue. Nulla venenatis eleifend scelerisque.
+                    Donec hendrerit dapibus dolor et vulputate. In sed nunc id nulla varius scelerisque. Donec tincidunt lectus eget diam ullamcorper, sit amet molestie arcu semper.
+                </p>
+                <p>
+                    Maecenas imperdiet, nisi ut feugiat elementum, nulla mauris viverra velit, tincidunt ullamcorper mi magna sed sem. Praesent ornare sapien sit amet libero sagittis viverra sit amet finibus nisi. Duis eget luctus arcu, consectetur convallis ante. Suspendisse
+                    finibus lacus in nisl iaculis euismod eget sed justo. Etiam euismod, lacus sed blandit semper, est risus rutrum ipsum, eget vulputate tellus purus a tortor. Curabitur sollicitudin neque et augue commodo, a fermentum lacus venenatis. Aliquam
+                    venenatis facilisis justo ac venenatis. Vivamus lobortis nisl id orci consequat, eget elementum leo tincidunt. Proin sit amet metus mi.
+                </p>
+                <p>
+                    Pellentesque a interdum mauris. Curabitur eget lacus vitae eros pellentesque tincidunt sit amet vitae nulla. Donec quis mollis augue, facilisis venenatis metus. Nam molestie velit ligula, in porttitor nisl euismod non. Ut varius venenatis augue, sit amet
+                    dignissim ligula mattis nec. Duis dignissim est non dictum elementum. Aenean vel sem bibendum, consectetur massa quis, dignissim massa. Praesent rutrum porttitor diam, ac ultrices lectus efficitur consectetur.
+                </p>
+                <p>
+                    Quisque efficitur, urna sit amet fermentum auctor, quam est lacinia augue, ac congue ex lorem ac enim. Aenean sit amet ullamcorper dui, at faucibus ipsum. Donec tempus diam ut sagittis consequat. Donec eu fermentum neque. Pellentesque commodo ut libero
+                    eu posuere. Duis vitae enim quis ex gravida faucibus. Suspendisse nisi neque, sodales nec augue quis, tempor laoreet velit. Donec mi eros, sollicitudin vitae metus sit amet, bibendum pulvinar augue. Nulla venenatis eleifend scelerisque.
+                    Donec hendrerit dapibus dolor et vulputate. In sed nunc id nulla varius scelerisque. Donec tincidunt lectus eget diam ullamcorper, sit amet molestie arcu semper.
+                </p>
+                <p>
+                    Maecenas imperdiet, nisi ut feugiat elementum, nulla mauris viverra velit, tincidunt ullamcorper mi magna sed sem. Praesent ornare sapien sit amet libero sagittis viverra sit amet finibus nisi. Duis eget luctus arcu, consectetur convallis ante. Suspendisse
+                    finibus lacus in nisl iaculis euismod eget sed justo. Etiam euismod, lacus sed blandit semper, est risus rutrum ipsum, eget vulputate tellus purus a tortor. Curabitur sollicitudin neque et augue commodo, a fermentum lacus venenatis. Aliquam
+                    venenatis facilisis justo ac venenatis. Vivamus lobortis nisl id orci consequat, eget elementum leo tincidunt. Proin sit amet metus mi.
+                </p>
+                <p>
+                    Pellentesque a interdum mauris. Curabitur eget lacus vitae eros pellentesque tincidunt sit amet vitae nulla. Donec quis mollis augue, facilisis venenatis metus. Nam molestie velit ligula, in porttitor nisl euismod non. Ut varius venenatis augue, sit amet
+                    dignissim ligula mattis nec. Duis dignissim est non dictum elementum. Aenean vel sem bibendum, consectetur massa quis, dignissim massa. Praesent rutrum porttitor diam, ac ultrices lectus efficitur consectetur.
+                </p>
             </div>
-            <p>
-                Cras at tempus felis. Vivamus at ultricies massa. Aenean vel mi ut lectus ultrices scelerisque. Nulla cursus malesuada posuere. Donec eros ipsum, pharetra non mauris egestas, feugiat egestas ligula. Nulla rhoncus enim ac mauris lacinia pretium. Suspendisse
-                tristique eget magna laoreet consequat. Nulla eget euismod massa. Nulla facilisi. Maecenas egestas dapibus malesuada. Suspendisse laoreet ullamcorper ex porta varius. Aliquam erat volutpat. Aliquam erat volutpat. Vivamus nec dolor turpis.
-                Pellentesque metus diam, placerat ac faucibus in, porttitor non ante. Etiam hendrerit magna eu felis pellentesque mollis.
-            </p>
-            <p>
-                Quisque efficitur, urna sit amet fermentum auctor, quam est lacinia augue, ac congue ex lorem ac enim. Aenean sit amet ullamcorper dui, at faucibus ipsum. Donec tempus diam ut sagittis consequat. Donec eu fermentum neque. Pellentesque commodo ut libero
-                eu posuere. Duis vitae enim quis ex gravida faucibus. Suspendisse nisi neque, sodales nec augue quis, tempor laoreet velit. Donec mi eros, sollicitudin vitae metus sit amet, bibendum pulvinar augue. Nulla venenatis eleifend scelerisque.
-                Donec hendrerit dapibus dolor et vulputate. In sed nunc id nulla varius scelerisque. Donec tincidunt lectus eget diam ullamcorper, sit amet molestie arcu semper.
-            </p>
-            <p>
-                Maecenas imperdiet, nisi ut feugiat elementum, nulla mauris viverra velit, tincidunt ullamcorper mi magna sed sem. Praesent ornare sapien sit amet libero sagittis viverra sit amet finibus nisi. Duis eget luctus arcu, consectetur convallis ante. Suspendisse
-                finibus lacus in nisl iaculis euismod eget sed justo. Etiam euismod, lacus sed blandit semper, est risus rutrum ipsum, eget vulputate tellus purus a tortor. Curabitur sollicitudin neque et augue commodo, a fermentum lacus venenatis. Aliquam
-                venenatis facilisis justo ac venenatis. Vivamus lobortis nisl id orci consequat, eget elementum leo tincidunt. Proin sit amet metus mi.
-            </p>
-            <p>
-                Pellentesque a interdum mauris. Curabitur eget lacus vitae eros pellentesque tincidunt sit amet vitae nulla. Donec quis mollis augue, facilisis venenatis metus. Nam molestie velit ligula, in porttitor nisl euismod non. Ut varius venenatis augue, sit amet
-                dignissim ligula mattis nec. Duis dignissim est non dictum elementum. Aenean vel sem bibendum, consectetur massa quis, dignissim massa. Praesent rutrum porttitor diam, ac ultrices lectus efficitur consectetur.
-            </p>
-            <p>
-                Quisque efficitur, urna sit amet fermentum auctor, quam est lacinia augue, ac congue ex lorem ac enim. Aenean sit amet ullamcorper dui, at faucibus ipsum. Donec tempus diam ut sagittis consequat. Donec eu fermentum neque. Pellentesque commodo ut libero
-                eu posuere. Duis vitae enim quis ex gravida faucibus. Suspendisse nisi neque, sodales nec augue quis, tempor laoreet velit. Donec mi eros, sollicitudin vitae metus sit amet, bibendum pulvinar augue. Nulla venenatis eleifend scelerisque.
-                Donec hendrerit dapibus dolor et vulputate. In sed nunc id nulla varius scelerisque. Donec tincidunt lectus eget diam ullamcorper, sit amet molestie arcu semper.
-            </p>
-            <p>
-                Maecenas imperdiet, nisi ut feugiat elementum, nulla mauris viverra velit, tincidunt ullamcorper mi magna sed sem. Praesent ornare sapien sit amet libero sagittis viverra sit amet finibus nisi. Duis eget luctus arcu, consectetur convallis ante. Suspendisse
-                finibus lacus in nisl iaculis euismod eget sed justo. Etiam euismod, lacus sed blandit semper, est risus rutrum ipsum, eget vulputate tellus purus a tortor. Curabitur sollicitudin neque et augue commodo, a fermentum lacus venenatis. Aliquam
-                venenatis facilisis justo ac venenatis. Vivamus lobortis nisl id orci consequat, eget elementum leo tincidunt. Proin sit amet metus mi.
-            </p>
-            <p>
-                Pellentesque a interdum mauris. Curabitur eget lacus vitae eros pellentesque tincidunt sit amet vitae nulla. Donec quis mollis augue, facilisis venenatis metus. Nam molestie velit ligula, in porttitor nisl euismod non. Ut varius venenatis augue, sit amet
-                dignissim ligula mattis nec. Duis dignissim est non dictum elementum. Aenean vel sem bibendum, consectetur massa quis, dignissim massa. Praesent rutrum porttitor diam, ac ultrices lectus efficitur consectetur.
-            </p>
         </div>
     </div>
+
+ 
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
+
 </html>

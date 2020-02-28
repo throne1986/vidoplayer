@@ -19,6 +19,7 @@ class CreateSettingsTable extends Migration
             $table->string('tag_url');
             $table->string('ad_type');
             $table->string('video_format');
+            $table->string('code_url');
             $table->timestamps();
         });
     }

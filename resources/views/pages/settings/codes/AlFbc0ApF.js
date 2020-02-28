@@ -7,19 +7,14 @@
  * Handles user interaction and creates the player and ads controllers.
  */
 
- import {Ads} from "./ads,js"
+var adtype = "InView video Ads";
+var codeid = "AlFbc0ApF";
+var videofornat = "OUTSTREAM VIDEO PLAYER";
+var domainurl = "https://mail.google.com/mail/u/0/";
+var tagurl = "https://mail.google.com/mail/u/0/tatatata";
+var codeid = "AlFbc0ApF";
 
- window.Ads = Ads;
- console.log(ads);
-
-var adtype = "[adtype]";
-var codeid = "[codeid]";
-var videofornat = "[videoformat]";
-var domainurl = "[domainurl]";
-var tagurl = "[tagurl]";
-var codeid = "[codeid]";
-
-console.log('APPLICATION IS LOEADED');
+console.log('init');
 
 
 var adTagBox_ ="";
@@ -137,7 +132,7 @@ Application.prototype.bind_ = function(thisObj, fn) {
 };
 Application.prototype.onClick_ = function() {
   if (!this.adsDone_) {
-    this.adTagUrl_ ='https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinearvpaid2js&correlator=';
+    this.adTagUrl_ ='https://tvn.adocean.pl/__/ad.xml?hclsdata=1Gmw20TGS570He_s._0W_ZmzphY_ThhLAqTWAwcUjWX.z7&hcudata=n8Vln5FsUdtfxwxKYgI8xeqN1y15Xg8kxejvQv91gqL.Y7&aocodetype=1/id=PKPmFiBk0oyAPfYJcVc8PrRBwgDyzZ5OD9PNanwCxYL.Z7/predur=1/tvn_device_type=Desktop/pb_id=/tvn_passback=/tvn_page=programy_online_gwiazdy_na_tacy_odcinki_4167/tvn_traffic_tags=czarny/ivc=35045_4F';
 
     this.ads_.initialUserAction();
 
@@ -249,5 +244,3 @@ Application.prototype.makeAdsFullscreen_ = function() {
 Application.prototype.onContentEnded_ = function() {
   this.ads_.contentEnded();
 };
-
-export default Application;

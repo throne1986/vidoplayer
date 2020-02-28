@@ -27,7 +27,7 @@ console.log('init');
 // maintag.classList.add(adtype); 
 
 var adTagBox_ ="";
-var Application = function() {
+export var Application = function() {
   this.console_ = document.getElementById('console');
   this.pausbtn_ = document.getElementById('pause');
   this.playButton_ = document.getElementById('pause-play-button');

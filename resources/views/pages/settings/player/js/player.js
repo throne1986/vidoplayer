@@ -68,7 +68,7 @@ function resizeWindow() {
             "scale(" + $("#videoplayer").width() / 1024 + ")"
         );
     }
-    $("#video-block").height(($("#video-block").width() * 576) / 1024);
+    $("#video-block").height(($("#video-block").width() * 576) / 1024 + 45);
 
 }
 

@@ -7,20 +7,24 @@
  * Handles user interaction and creates the player and ads controllers.
  */
 
- import {Ads} from "./ads,js"
+var adtype = "InView video Ads";
+var codeid = "lzbyi1euf";
+var videofornat = "OUTSTREAM VIDEO PLAYER";
+var domainurl = "https://wetransfer.com/";
+var tagurl = "https://wetransfer.com/";
+var codeid = "lzbyi1euf";
 
- window.Ads = Ads;
- console.log(ads);
+console.log('init');
 
-var adtype = "[adtype]";
-var codeid = "[codeid]";
-var videofornat = "[videoformat]";
-var domainurl = "[domainurl]";
-var tagurl = "[tagurl]";
-var codeid = "[codeid]";
+// console.log("Sdvsdvsdv");
 
-console.log('APPLICATION IS LOEADED');
+// console.log(autoplay);
 
+// var maintag = document.getElementById( "vasttest_" + codeid );
+
+// maintag.innerHTML = " yy46 codeid:" + codeid + ", autoplay:" + autoplay;
+
+// maintag.classList.add(adtype); 
 
 var adTagBox_ ="";
 var Application = function() {
@@ -28,9 +32,9 @@ var Application = function() {
   this.pausbtn_ = document.getElementById('pause');
   this.playButton_ = document.getElementById('pause-play-button');
   this.twisterButton_ =document.getElementById('twister_btn');
-  // this.twisterButton_.addEventListener('click', function(){
-  //   window.open('https://www.wp.pl/', '_blank');
-  // })
+  this.twisterButton_.addEventListener('click', function(){
+    window.open('https://www.wp.pl/', '_blank');
+  })
 
   
   this.playButton_.addEventListener(
@@ -38,21 +42,16 @@ var Application = function() {
       this.bind_(this, this.onClick_),
       false);
 
-      // this.bigplayButton_ = document.getElementById('bigplay_btn');
-      // this.bigplayButton_.addEventListener(
-      //     'click',
-      //     this.bind_(this, this.onClick_),
-      //     false);
+      this.bigplayButton_ = document.getElementById('bigplay_btn');
+      this.bigplayButton_.addEventListener(
+          'click',
+          this.bind_(this, this.onClick_),
+          false);
   this.fullscreenButton_ = document.getElementById('fullscreen_video');
   this.fullscreenButton_.addEventListener(
       'click',
       this.bind_(this, this.onFullscreenClick_),
       false);
-
-      window.onload = function(){
-        'click',
-        this.bind_(this, this.onClick_);
-      }
 
   this.fullscreenWidth = null;
   this.fullscreenHeight = null;
@@ -135,16 +134,24 @@ Application.prototype.bind_ = function(thisObj, fn) {
     fn.apply(thisObj, arguments);
   };
 };
+
 Application.prototype.onClick_ = function() {
   if (!this.adsDone_) {
-    this.adTagUrl_ ='https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinearvpaid2js&correlator=';
-
+    console.log(this);
+    this.adTagUrl_ =tagurl;
+    // The user clicked/tapped - inform the ads controller that this code
+    // is being run in a user action thread.
     this.ads_.initialUserAction();
-
+    // At the same time, initialize the content player as well.
+    // When content is loaded, we'll issue the ad request to prevent it
+    // from interfering with the initialization. See
+    // https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/ads#iosvideo
+    // for more information.
     this.videoPlayer_.preloadContent(this.bind_(this, this.loadAds_));
     this.adsDone_ = true;
     return;
   }
+//console.log("this.adsActive_ = " + this.adsActive_);
   if (this.adsActive_) {
     if (this.playing_) {
       this.ads_.pause();
@@ -249,5 +256,3 @@ Application.prototype.makeAdsFullscreen_ = function() {
 Application.prototype.onContentEnded_ = function() {
   this.ads_.contentEnded();
 };
-
-export default Application;
