@@ -18,7 +18,6 @@ $(document).ready(function () {
     });
 
     $("#pause-play-button").on("click", function () {
-        TweenMax.set('.opened', {clearProps: 'all'});
         if($("#video-block video")[0].paused==true) {
             $("#video-block video")[0].play();
         } else {
@@ -49,26 +48,13 @@ function resizeWindow() {
 
     $("#video-container").height(($("#video-container").width() * 576) / 1024);
 
-    if ($("#interactive-layers").height(($("#interactive-layers").width() * 576) / 1024)) {
-        $("#interactive-layers").css(
-            "transform",
-            "scale(" + $("#videoplayer").width() / 1024 + ")"
-        );
-    }
     if ($("#adcontainer").height(($("#adcontainer").width() * 576) / 1024)) {
         $("#adcontainer").css(
             "transform",
             "scale(" + $("#videoplayer").width() / 1024 + ")"
         );
     }
-
-    if ($("#interactive-modal").height(($("#interactive-modal").width() * 576) / 1024)) {
-        $("#interactive-modal").css(
-            "transform",
-            "scale(" + $("#videoplayer").width() / 1024 + ")"
-        );
-    }
-    $("#video-block").height(($("#video-block").width() * 576) / 1024 + 45);
+    $("#video-block").height(($("#video-block").width() * 576) / 1024);
 
 }
 

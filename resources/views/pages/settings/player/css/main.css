@@ -78,7 +78,7 @@ body {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding: 0px 81px;
+    /* padding: 0px 81px; */
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -301,23 +301,10 @@ body {
 
 #muted-btn{
     position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 15px;
-    display: block;
+    top: 0px;
+    left: 6px;
+    z-index: 10000;
     cursor: pointer;
-    margin: 11px;
-    position: absolute;
-    bottom: 0px;
-    left: 50px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 50px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    color: white;
 }
 .hidden{
     display: none;

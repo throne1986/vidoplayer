@@ -33,14 +33,18 @@
 	/* text-align: center; */
 }
 #play{
-	margin-top: -3px;
+	margin-top: -5px;
 	font-family: "klavika_basicmedium";
 	height: 28px;
 	height: 22px;
+	cursor: pointer;
+
 }
 #pause{
+	margin-top: -5px;
 	font-family: "klavika_basicmedium";
-	height: 22px;;
+	height: 22px;
+	cursor: pointer;
 }
 #pause-play-button span#play {
 	display:none;
@@ -59,7 +63,7 @@
 
 #video-controls {
 	position: absolute;
-	bottom: 0px;
+    bottom: 32px;
 	left: 0px;
 	width: 100%;
 	height: 38px;
@@ -74,22 +78,25 @@
 	
 }
 #seek-bar-container {
-	width:100%;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
-	height:100%;
-	position:absolute;
-	left:0px;
-	background-color:#000000;
-    top: -3px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }        
 #seek-bar-container #seek-bar {
 	position: relative;
-    height: 7%;
+    height: 50%;
     margin-top: 3px;
     background-color: #8a755400;
-    border: 1px solid #d11f1f;
-    box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.1);
+    border: 1px solid #FFFFFF;
+	box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.1);
 }
 #seek-bar-container #seek-bar #current-time {
 	width:0%;

@@ -32,6 +32,7 @@ export function initDesktopAutoplayExample() {
 
   playButton = document.getElementById('pause-play-button');
   playButton.addEventListener('click', () => {
+      console.log('Play Pause');
     // Initialize the container. Must be done via a user action where autoplay
     // is not allowed.
     adDisplayContainer.initialize();
@@ -121,18 +122,15 @@ function contentEndedListener() {
 function autoplayChecksResolved() {
   // Request video ads.
   var adsRequest = new google.ima.AdsRequest();
-  adsRequest.adTagUrl = 'https://pubads.g.doubleclick.net/gampad/ads?' +
-      'sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&' +
-      'impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&' +
-      'cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=';
+  adsRequest.adTagUrl = 'https://track.adform.net/serving/videoad/?bn=35122992&v=2&ord=[timestamp]';
 
   // Specify the linear and nonlinear slot sizes. This helps the SDK to
   // select the correct creative if multiple are returned.
-  adsRequest.linearAdSlotWidth = 640;
-  adsRequest.linearAdSlotHeight = 400;
+  adsRequest.linearAdSlotWidth = 1024;
+  adsRequest.linearAdSlotHeight = 576;
 
-  adsRequest.nonLinearAdSlotWidth = 640;
-  adsRequest.nonLinearAdSlotHeight = 150;
+  adsRequest.nonLinearAdSlotWidth = 1024;
+  adsRequest.nonLinearAdSlotHeight = 576;
 
   adsRequest.setAdWillAutoPlay(autoplayAllowed);
   adsRequest.setAdWillPlayMuted(autoplayRequiresMuted);
@@ -153,7 +151,7 @@ function playAds() {
       adsInitialized = true;
     }
     // Initialize the ads manager. Ad rules playlist will start at this time.
-    adsManager.init(640, 360, google.ima.ViewMode.NORMAL);
+    adsManager.init(1024, 576, google.ima.ViewMode.NORMAL);
     // Call play to start showing the ad. Single video and overlay ads will
     // start at this time; the call will be ignored for ad rules.
     adsManager.start();
