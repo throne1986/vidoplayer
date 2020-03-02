@@ -99,10 +99,13 @@ class SettingController extends Controller
          $code_id= $settings->code_id;
          $name= $settings->name;
          
-         $path = resource_path('views/pages/settings/player/js/application.js');
+         $path = resource_path('views/pages/settings/embed_codeid.js');
+         $config_path = resource_path('views/pages/settings/config_template.js');
+
          $autoplay = "true";
 
         $templatefile = file_get_contents($path);
+        $config_templatefile = file_get_contents($config_path);
         
         $put_content_path =resource_path('views/pages/settings/codes/');
         $replacedfile = str_replace("[autoplay]", $autoplay, $templatefile);
@@ -110,9 +113,13 @@ class SettingController extends Controller
         $replacedfile = str_replace("[adtype]", $ad_type, $replacedfile);
         $replacedfile = str_replace("[videoformat]", $video_format, $replacedfile);
         $replacedfile = str_replace("[domainurl]", $domain_url, $replacedfile);
-        $replacedfile = str_replace("[tagurl]", $tag_url, $replacedfile);
+
+
+        $config_templatefile = str_replace("[tagurl]", $tag_url, $config_templatefile);
 
        file_put_contents($put_content_path .$code_id .".js", $replacedfile );
+
+       file_put_contents($put_content_path ."config_".$code_id .".js", $config_templatefile );
 
        $path = "pages/settings/";
     

@@ -25,21 +25,48 @@ var videoContent;
 var adsInitialized;
 var autoplayAllowed;
 var autoplayRequiresMuted;
+var vasturl = "";
 
-export function initDesktopAutoplayExample() {
+
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  var found = "";
+  for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split("=");
+          if (pair[0] == variable) found = pair[1]
+  }
+
+  if (found == "") {
+          found = vars[0];
+  }
+
+  return found;
+}
+
+function loadConfig() {
+
+  var configjs = document.createElement("script");
+  configjs.setAttribute("src", "http://localhost/player/resources/views/pages/settings/codes/" + "/config_" + getQueryVariable("codeid") + ".js" );
+  document.head.appendChild(configjs);
+
+  
+}
+
+function initDesktopAutoplayExample() {
   videoContent = document.getElementById('videoplayer');
   console.log(videoContent);
 
-  playButton = document.getElementById('pause-play-button');
-  playButton.addEventListener('click', () => {
-      console.log('Play Pause');
-    // Initialize the container. Must be done via a user action where autoplay
-    // is not allowed.
-    adDisplayContainer.initialize();
-    adsInitialized = true;
-    videoContent.load();
-    playAds();
-  });
+  // playButton = document.getElementById('pause-play-button');
+  // playButton.addEventListener('click', () => {
+  //     console.log('Play Pause');
+  //   // Initialize the container. Must be done via a user action where autoplay
+  //   // is not allowed.
+  //   adDisplayContainer.initialize();
+  //   adsInitialized = true;
+  //   videoContent.load();
+  //   playAds();
+  // });
   setUpIMA();
   // Check if autoplay is supported.
   checkAutoplaySupport();
@@ -122,7 +149,7 @@ function contentEndedListener() {
 function autoplayChecksResolved() {
   // Request video ads.
   var adsRequest = new google.ima.AdsRequest();
-  adsRequest.adTagUrl = 'https://track.adform.net/serving/videoad/?bn=35122992&v=2&ord=[timestamp]';
+  adsRequest.adTagUrl = vasturl; //'https://track.adform.net/serving/videoad/?bn=35122992&v=2&ord=[timestamp]';
 
   // Specify the linear and nonlinear slot sizes. This helps the SDK to
   // select the correct creative if multiple are returned.

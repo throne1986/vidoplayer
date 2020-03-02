@@ -1,4 +1,4 @@
-import { show  } from './bundle'
+import { show  } from './embed_codeid'
 
 console.log(show);
 const supportedAPI = ['init', 'message']; // enlist all methods supported by API (e.g. `mw('event', 'user-login');`)

@@ -1,0 +1,3 @@
+vasturl = "dvfsdv";
+
+initDesktopAutoplayExample();

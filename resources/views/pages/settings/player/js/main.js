@@ -3,29 +3,8 @@ var userMuted = "false";
 var configFromParent = null;
 var adStarted = false;
 
-
-
 $(document).ready(function () {
     console.log('Main function')
-
-    $("#videoplayer")[0].addEventListener("ended", videoComplete);
-    //get videoplayer tag element
-    var videoplayerID = document.getElementById("videoplayer");
-    //get current time using timeudate from video tag
-    videoplayerID.addEventListener("timeupdate", function () {
-
-        if (this.currentTime > 0) {
-            $("#bigplay_btn").hide();
-        } else {
-            $("#bigplay_btn").show();
-        }
-
-        if ($(this)[0].duration) {
-            $(this).parent().parent().find("#current-time").css("width", ($(this)[0].currentTime * 100 / $(this)[0].duration) + "%");
-        }
-
-
-    });
 
     $("#vast-skip").on('click', function () {
         $('#adform-outstream').remove();
@@ -55,7 +34,6 @@ $(document).ready(function () {
         $("#video-controls").addClass('show');
 
     })
-
 
     $("#muted-btn").on("click", function () {
         if ($("#videoplayer")[0].muted == false) {
@@ -87,13 +65,5 @@ $(document).ready(function () {
     $("#videoplayer").on('ended', function () {
         $("#bigplay_btn").show();
     })
-    function videoComplete(e) {
-        console.log("video ended");
-        $('#adform-outstream').fadeOut();
-        parent.postMessage({ 
-            videoComplete: true
-        }, "*");
-        $("#videoplayer")[0].currentTime = 0;
-
-    }
+ 
 })

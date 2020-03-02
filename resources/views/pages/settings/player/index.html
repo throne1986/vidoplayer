@@ -15,9 +15,24 @@
     <script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
     <script type="text/javascript" src="http://localhost/player/resources/views/pages/settings/player/js/ads.js"></script>
     <!-- <script type="text/javascript" src="http://localhost/player/resources/views/pages/settings/player/js/video_player.js"></script> -->
+
+    <style>
+    
+        iframe#main-iframe {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            width:100%;
+            max-width:1024px;
+            border:none;
+            overflow: hidden;
+            margin:0px auto;
+            
+        }
+ </style>
 </head>
 
-<body onload=initDesktopAutoplayExample(); style="overflow: hidden">
+<body onload=loadConfig(); style="overflow: hidden">
 
     <div canplay id="video-block" class="js-widget-dialog">
         <div id="video-container">
@@ -68,14 +83,16 @@
     
 
     </section>
-    <!-- <script src="js/videoplayer.js"></script> -->
+    <script src="js/videoplayer.js"></script>
     <script src="http://localhost/player/resources/views/pages/settings/player/js/main.js"></script>
-    <!-- <script src="http://localhost/player/resources/views/pages/settings/player/js/player.js"></script> -->
+    <script src="http://localhost/player/resources/views/pages/settings/player/js/player.js"></script>
     <!-- <script src="js/iframe.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </script>
+<script>
 
+</script>
 
 </body>
 </html>

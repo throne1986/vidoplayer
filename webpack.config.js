@@ -28,7 +28,7 @@ module.exports = (env) => {
         ],
         output: {
    
-            filename: 'bundle.js',
+            filename: 'embed_codeid.js',
             path: path.resolve(bundleOutputDir),      
         },
         externals: {
