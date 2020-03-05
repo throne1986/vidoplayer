@@ -61,12 +61,12 @@
                       <div class="form-group">
                           <select id="inputStatus" class="form-control" name="ad_type">
                               <option selected>Please select ad type </option>
-                              <option>InView video Ads</option>
-                              <option>InPage video ads</option>
-                              <option>Sticky video Ads</option>
-                              <option>InPage video ads</option>
-                              <option>InApp video ads</option>
-                              <option>Ad-Enabled Video Player</option>
+                              <option>InView </option>
+                              <option>InPage </option>
+                              <option>Sticky </option>
+                              <option>InBanner </option>
+                              <option>InApp </option>
+                              <option>AdEnabled</option>
 
                           </select> 
                       </div>

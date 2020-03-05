@@ -14,7 +14,7 @@ body {
     padding: 0px;
 }
 /* 
-#adform-outstream {
+#videomill-Sticky  {
     height: 0;
     transition: max-height 0.5s, background-color 2s;
     overflow: hidden;
@@ -22,12 +22,12 @@ body {
     background-color: transparent;
   } */
   
-  /* #adform-outstream.show {
+  /* #videomill-Sticky .show {
     height: auto;
     background-color: yellow;
   } */
 /* 
-  #adform-outstream{
+  #videomill-Sticky {
       display:none;
   } */
 

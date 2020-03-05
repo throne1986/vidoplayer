@@ -1,3 +1,4 @@
 vasturl = "[tagurl]";
 
-initDesktopAutoplayExample();
+var startEvent = 'click';
+checkUnmutedAutoplaySupport();

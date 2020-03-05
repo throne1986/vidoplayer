@@ -1,0 +1,59 @@
+
+#vast-skip {
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    cursor: pointer;
+    top: 7px;
+    right: 5px;
+    color: #fff;
+    font-family: "Lucida Grande","Lucida Sans Unicode",Tahoma,sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+    padding: 4px 8px 4px 9px;
+    background: rgba(17,17,17,.8);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 5px;
+    z-index: 9999999;
+    display: none;
+}
+
+#vast-skip.show{
+    display: block;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#video-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#vidddeomill-InPage{
+    background: red;
+    height: 0px;
+    overflow: hidden;
+    transition: height 2s;
+    -moz-transition: height 2s;
+    /* Firefox 4 */
+    -webkit-transition: height 2s;
+    /* Safari and Chrome */
+    -o-transition: height 2s;
+}
+
+.show{
+    max-height: 0;
+    transition: max-height 2s;
+    -webkit-transition: height 2s;
+    overflow: hidden;
+    height: 'auto';
+}
+
+.videoAdUi {
+    border: 1px solid #b7444469;
+}

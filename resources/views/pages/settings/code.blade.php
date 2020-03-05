@@ -17,8 +17,9 @@
     </div>
       <pre><code class="xml">
         <span class="hljs-comment">&lt;!-- Videoplayer Integration Code --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span>
-                 &ltdiv id="videomill-outstream" class="vmwp-v1" &gt
+
+        &ltdiv id="videomill-<?php echo "$settings->ad_type"; ?>" style="height:0;overflow:hidden;" class="vmwp-v1" &gt
+             <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span>
                     (function (w,d,s,o,f,js,fjs) {
                                 w['JS-Widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
                                 js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
@@ -29,8 +30,9 @@
                                 app_id:12345 
                             });
                     mw('message', 'x');
-                  &lt/div&gt
-      <span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code>  
+            <span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+      &lt/div&gt
+      </code>  
       </code>
     </pre>
   </div>

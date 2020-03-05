@@ -8,12 +8,9 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "build": "./node_modules/.bin/webpack --config webpack.config.js",
         "build-release": "./node_modules/.bin/webpack --config webpack.config.js --env.prod",
         "start": "./node_modules/.bin/webpack-dev-server --open",
-        "server": "node app.js",
         "client": "node client.js",
-        "websocketserver": "node websocketserver.js",
         "test": "webpack --env.someUserSpecificId=foo"
     },
     "devDependencies": {
