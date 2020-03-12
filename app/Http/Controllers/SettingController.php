@@ -99,15 +99,15 @@ class SettingController extends Controller
          $code_id= $settings->code_id;
          $name= $settings->name;
          
-         $path = resource_path('views/pages/settings/embed_codeid.js');
-         $config_path = resource_path('views/pages/settings/config_template.js');
+         $path = storage_path('widget/embed_codeid.js');
+         $config_path = storage_path('widget/config_template.js');
 
          $autoplay = "true";
 
         $templatefile = file_get_contents($path);
         $config_templatefile = file_get_contents($config_path);
         
-        $put_content_path =resource_path('views/pages/settings/codes/');
+        $put_content_path =storage_path('widget/codes/');
         $replacedfile = str_replace("[autoplay]", $autoplay, $templatefile);
         $replacedfile = str_replace("[codeid]", $code_id, $replacedfile);
         $replacedfile = str_replace("[adtype]", $ad_type, $replacedfile);

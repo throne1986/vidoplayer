@@ -36,7 +36,7 @@ iframe.id = "main-iframe";
 iframe.frameBorder = 0;
 iframe.width = "100%";
 iframe.maxWidth = "1024px";
-iframe.src = 'http://localhost/player/resources/views/pages/settings/player/index.html?codeid=' + codeid;
+iframe.src = 'https://localhost/player/resources/views/pages/settings/player/index.html?codeid=' + codeid;
 
 addcontainer.appendChild(iframe);
 

@@ -12,12 +12,12 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 let container;
 let  iframe ;
-var adtype = "[adtype]";
-var codeid = "[codeid]";
-var videofornat = "[videoformat]";
-var domainurl = "[domainurl]";
+var adtype = "InPage";
+var codeid = "ZRsvjyFch";
+var videofornat = "OUTSTREAM VIDEO PLAYER";
+var domainurl = "https://pl.wikipedia.org/wiki/Nelson_Mandela";
 var tagurl = "[tagurl]";
-var codeid = "[codeid]";
+var codeid = "ZRsvjyFch";
 var addcontainer;
    
 var fixedadContainer = document.createElement("div");
@@ -36,7 +36,7 @@ var fixedadContainer = document.createElement("div");
     iframe.frameBorder=0;
     iframe.width="100%";
     iframe.maxWidth="1024px";
-    iframe.src = 'https://player.videomill.co/material/player/index.html?codeid=' + codeid;
+    iframe.src = 'http://localhost/player/resources/views/pages/settings/player/index.html?codeid=' + codeid;
 
     addcontainer.appendChild(iframe);
 

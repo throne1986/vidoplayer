@@ -12,8 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
+
+
+// Route::get('/clear-cache', function() {
+//     Artisan::call('cache:clear');
+//     return "Cache is cleared";
+// });
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
@@ -51,11 +59,41 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('pages.upgrade');
 	})->name('upgrade');
 
-	// Route::get('settings/code', 'SettingController@code');
+
 	Route::get('settings/code/{id}/{code_id}', ['as' => 'settings.code', 'uses' => 'SettingController@code']);
 	
-	// Route::get('/settings/code/{code_id}', 'MyController@code')->name('settings.code');
 	Route::resource('settings', "SettingController");
+
+		Route::get('widget/codes/{filename}', function ($filename){
+			$path = storage_path('widget/codes/' . $filename);
+
+				if (!File::exists($path)) {
+					abort(404);
+				}
+			$file = File::get($path);
+			$type = File::mimeType($path);
+			$response = Response::make($file, 200);
+			$response->header("Content-Type", $type);
+
+		return $response;
+	});
+
+
+	Route::get('player/{filename}', function ($filename){
+		$path = storage_path('player/' . $filename);
+
+			if (!File::exists($path)) {
+				abort(404);
+			}
+		$file = File::get($path);
+		$type = File::mimeType($path);
+		$response = Response::make($file, 200);
+		$response->header("Content-Type", $type);
+
+	return $response;
+});
+
+
 });
 
 Route::group(['middleware' => ['admin']], function () {

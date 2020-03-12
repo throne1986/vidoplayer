@@ -12,12 +12,12 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 let container;
 let  iframe ;
-var adtype = "[adtype]";
-var codeid = "[codeid]";
-var videofornat = "[videoformat]";
-var domainurl = "[domainurl]";
+var adtype = "Sticky";
+var codeid = "qhujDeoQj";
+var videofornat = "OUTSTREAM VIDEO PLAYER";
+var domainurl = "https://player.videomill.co/";
 var tagurl = "[tagurl]";
-var codeid = "[codeid]";
+var codeid = "qhujDeoQj";
 var addcontainer;
    
 var fixedadContainer = document.createElement("div");
@@ -63,7 +63,7 @@ $(document).ready(function () {
                 var scrollTop = $(document).scrollTop();
                 console.log(inviewTop, scrollTop);
 
-                $("#videomill-InView").css({
+                $("#videomill-Sticky").css({
                     'height': 'auto',
                     'transition': 'height 3s',
                     '-moz-transition': 'height 3s',

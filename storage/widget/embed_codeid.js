@@ -63,7 +63,7 @@ $(document).ready(function () {
                 var scrollTop = $(document).scrollTop();
                 console.log(inviewTop, scrollTop);
 
-                $("#videomill-InView").css({
+                $("#videomill-Sticky").css({
                     'height': 'auto',
                     'transition': 'height 3s',
                     '-moz-transition': 'height 3s',

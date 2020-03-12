@@ -1,0 +1,122 @@
+
+#video-block {
+	width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+	padding: 0px;
+	position: relative;
+}
+
+#video-block video {
+	width: 100%;
+}
+#pause-play-button {
+    padding: 8px;
+	/* background-color: #e92c2e;
+	border:1px solid #000000; */
+	display:block;
+	cursor:pointer;
+	margin: 3px;
+	position:absolute;
+	bottom:0px;
+    left: 1px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width:50px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	color: white;
+	height: 100%;
+	top: -3px;
+	/* text-align: center; */
+}
+#play{
+	margin-top: -5px;
+	font-family: "klavika_basicmedium";
+	height: 28px;
+	height: 22px;
+	cursor: pointer;
+
+}
+#pause{
+	margin-top: -5px;
+	font-family: "klavika_basicmedium";
+	height: 22px;
+	cursor: pointer;
+}
+#pause-play-button span#play {
+	display:none;
+}
+#pause-play-button span#pause {
+	display:block;
+}
+#video-block.paused #pause-play-button span#play {
+	display:block;
+
+}
+#video-block.paused #pause-play-button span#pause {
+
+	display:none;
+}
+
+#video-controls {
+	position: absolute;
+    bottom: 32px;
+	left: 0px;
+	width: 100%;
+	height: 38px;
+	display: none;
+	z-index: 10000000;
+	
+}
+#video-block.canplay #video-controls {
+
+	display:block;
+
+	
+}
+#seek-bar-container {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}        
+#seek-bar-container #seek-bar {
+	position: relative;
+    height: 50%;
+    margin-top: 3px;
+    background-color: #8a755400;
+    border: 1px solid #FFFFFF;
+	box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.1);
+}
+#seek-bar-container #seek-bar #current-time {
+	width:0%;
+	height:100%;
+	position:absolute;
+	left:0px;
+	top:0px;
+	background-color: #eceaea;
+	cursor: pointer;
+}
+
+#fullscreen_video{
+	padding: 10px;
+    display: block;
+    cursor: pointer;
+	margin: -5px;
+    position: absolute;
+	bottom: 0px;
+    right: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50px
+}

@@ -11,39 +11,56 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 
 let container;
-let  iframe ;
-var adtype = "[adtype]";
-var codeid = "[codeid]";
-var videofornat = "[videoformat]";
-var domainurl = "[domainurl]";
+let iframe;
+var adtype = "InView";
+var codeid = "4MiCzRXA1";
+var videofornat = "OUTSTREAM VIDEO PLAYER";
+var domainurl = "http://ryanthompson591.github.io/";
 var tagurl = "[tagurl]";
-var codeid = "[codeid]";
+var codeid = "4MiCzRXA1";
 var addcontainer;
-   
+
 var fixedadContainer = document.createElement("div");
-    addcontainer = document.createElement("div");
-     addcontainer.className = "addcontainer";
+addcontainer = document.createElement("div");
+addcontainer.className = "addcontainer";
 
-     console.log(addcontainer)
-    // append elements to body
-     container = document.getElementById('videomill-' + adtype);
-     console.log(container);
-     container.appendChild(addcontainer);
+var skip = document.createElement('span');
+skip.className = "vast-skip";
+skip.innerHTML = "skip";
 
-    // var closeContainer =document.getElementById('skip');
-    iframe = document.createElement('iframe');
-    iframe.id = "main-iframe";
-    iframe.frameBorder=0;
-    iframe.width="100%";
-    iframe.maxWidth="1024px";
-    iframe.src = 'https://player.videomill.co/material/player/index.html?codeid=' + codeid;
+addcontainer.appendChild(skip)
+console.log(addcontainer)
+// add css to skip button
+$(".vast-skip").css({
+    'color': 'white',
+    'background': 'rgba(17,17,17,.8)',
+    "border": "1px solid rgba(255,255,255,.2)",
+    "border-radius": "5px",
+    'padding': '14px',
+    "position": "absolute",
+    "font-size": "12px",
+    'z-index': '9999999'
+})
+// append elements to body
+container = document.getElementById('videomill-' + adtype);
+console.log(container);
+container.appendChild(addcontainer);
 
-    addcontainer.appendChild(iframe);
+// var closeContainer =document.getElementById('skip');
+iframe = document.createElement('iframe');
+iframe.id = "main-iframe";
+iframe.frameBorder = 0;
+iframe.width = "100%";
+iframe.maxWidth = "1024px";
+iframe.src = 'https://player.videomill.co/material/player/index.html?codeid=' + codeid;
 
-    // document.body.appendChild(fixedadContainer);
-    
- 
+addcontainer.appendChild(iframe);
+
+// document.body.appendChild(fixedadContainer);
+
+
 $(document).ready(function () {
+
     function resizeIframe() {
         $("iframe#main-iframe").height($("iframe#main-iframe").width() * 576 / 1024 + 45);
     }
@@ -63,7 +80,7 @@ $(document).ready(function () {
                 var scrollTop = $(document).scrollTop();
                 console.log(inviewTop, scrollTop);
 
-                $("#videomill-InView").css({
+                $("#videomill-Sticky").css({
                     'height': 'auto',
                     'transition': 'height 3s',
                     '-moz-transition': 'height 3s',
@@ -90,7 +107,7 @@ $(document).ready(function () {
 
             var waypoint = new Waypoint({
                 element: document.getElementById('videomill-InPage'),
-                handler: function(direction) {
+                handler: function (direction) {
                     $("#videomill-InPage").css({
                         'height': 'auto',
                         'transition': 'height 2s',
@@ -102,66 +119,73 @@ $(document).ready(function () {
                     })
                 },
                 offset: '50%'
-              })
+            })
             break;
 
-            case 'videomill-InView':
+        case 'videomill-InView':
 
-                var waypoint = new Waypoint({
-                    element: document.getElementById('videomill-InView'),
-                    handler: function(direction) {
-                        $(".addcontainer").css({
-                            "position": "fixed",
-                            'height': 'auto',
-                            'right': '0px',
-                            'top': '50%',
-                            'width': '40%',
-                            'transition': 'height 2s',
-                            '-moz-transition': 'height 2s',
-                            /* Firefox 4 */
-                            '-webkit-transition': 'height 2s',
-                            /* Safari and Chrome */
-                            '-o-transition': 'height 2s'
-                        })
-                    },
-                    offset: '50%'
-                  })
-                break;
-
-
-                case 'videomill-InBanner':
-
-                    $("#videomill-InBanner").css({
-                        'height': 'auto'
+            var waypoint = new Waypoint({
+                element: document.getElementById('videomill-InView'),
+                handler: function (direction) {
+                    $(".addcontainer").css({
+                        "position": "fixed",
+                        'height': 'auto',
+                        'right': '0px',
+                        'top': '50%',
+                        'width': '40%',
+                        'transition': 'height 2s',
+                        '-moz-transition': 'height 2s',
+                        /* Firefox 4 */
+                        '-webkit-transition': 'height 2s',
+                        /* Safari and Chrome */
+                        '-o-transition': 'height 2s'
                     })
-                
-                    break;
-    
-            case 'videomill-InApp':
-                    
-                var waypoint = new Waypoint({
-                    element: document.getElementById('videomill-InApp'),
-                    handler: function(direction) {
-                        $("#videomill-InApp").css({
-                            'height': 'auto',
-                            'transition': 'height 2s',
-                            '-moz-transition': 'height 2s',
-                            /* Firefox 4 */
-                            '-webkit-transition': 'height 2s',
-                            /* Safari and Chrome */
-                            '-o-transition': 'height 2s'
-                        })
-                    },
-                    offset: '50%'
-                  })
-                
-                    break;
-    
+                },
+                offset: '50%'
+            })
+
+
+            break;
+
+
+        case 'videomill-InBanner':
+
+            $("#videomill-InBanner").css({
+                'height': 'auto'
+            })
+
+            break;
+
+        case 'videomill-InApp':
+
+            var waypoint = new Waypoint({
+                element: document.getElementById('videomill-InApp'),
+                handler: function (direction) {
+                    $("#videomill-InApp").css({
+                        'height': 'auto',
+                        'transition': 'height 2s',
+                        '-moz-transition': 'height 2s',
+                        /* Firefox 4 */
+                        '-webkit-transition': 'height 2s',
+                        /* Safari and Chrome */
+                        '-o-transition': 'height 2s'
+                    })
+                },
+                offset: '50%'
+            })
+
+            break;
+
 
         default:
             break;
     }
 
+    if ($("#videomill-InView").length) {
+        console.log('Yes iam');
+    } else {
+        console.log('Its null nigga');
+    }
 
 })
 

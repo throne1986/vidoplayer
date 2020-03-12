@@ -63,11 +63,11 @@
                   <div class="col-sm-7">
                       <div class="form-group">
                         <select id="inputStatus" class="form-control" name="ad_type">
-                          <option value="InView video Ads" @if ($settings->ad_type === 'InView video Ads') selected @endif>InView video Ads</option> 
-                          <option value="InPage video ads" @if ($settings->ad_type === 'InPage video ads') selected @endif>InPage video ads</option> 
-                          <option value="Sticky video Ads" @if ($settings->ad_type === 'Sticky video Ads') selected @endif>Sticky video Ads</option> 
-                          <option value="InApp video ads" @if ($settings->ad_type === 'InApp video ads') selected @endif>InApp video ads</option> 
-                          <option value="Ad-Enabled Video Player" @if ($settings->ad_type === 'Ad-Enabled Video Player') selected @endif>Ad-Enabled Video Player</option> 
+                          <option value="InView" @if ($settings->ad_type === 'InView') selected @endif>InView </option> 
+                          <option value="InPage" @if ($settings->ad_type === 'InPage') selected @endif>InPage </option> 
+                          <option value="Sticky" @if ($settings->ad_type === 'Sticky') selected @endif>Sticky </option> 
+                          <option value="InApp" @if ($settings->ad_type === 'InApp') selected @endif>InApp </option> 
+                          <option value="AdEnabled" @if ($settings->ad_type === 'AdEnabled') selected @endif>Ad-Enabled </option> 
                       </select>  
                       </div>
                   </div>
@@ -79,8 +79,8 @@
                     <div class="form-group">
                         <select id="inputFormats" class="form-control" name="video_format">
 
-                          <option value="OUTSTREAM VIDEO PLAYER" @if ($settings->video_format === 'OUTSTREAM VIDEO PLAYER') selected @endif>OUTSTREAM VIDEO PLAYER</option> 
-                          <option value="InPage video ads" @if ($settings->ad_type === 'InPage video ads') selected @endif>InPage video ads</option> 
+                          <option value="OUTSTREAM " @if ($settings->video_format === 'OUTSTREAM ') selected @endif>OUTSTREAM </option> 
+                          <option value="InPage " @if ($settings->ad_type === 'InPage ') selected @endif>InPage </option> 
                         </select>
                     </div>
                 </div>

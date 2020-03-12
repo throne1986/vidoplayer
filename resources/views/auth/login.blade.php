@@ -7,7 +7,7 @@
       <h3>{{ __('Please Login To Access Your Settings') }} </h3>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-      <form class="form" method="POST" action="{{ route('login') }}">
+      <form class="form" method="POST" id="login-form" action="{{ route('login') }}">
         @csrf
 
         <div class="card card-login card-hidden mb-3">
@@ -34,7 +34,7 @@
                     <i class="material-icons">email</i>
                   </span>
                 </div>
-                <input type="email" name="email" class="form-control" placeholder="{{ __('Email...') }}" value="{{ old('email', 'admin@material.com') }}" required>
+                <input type="email" id="email" name="email" class="form-control" placeholder="{{ __('Email...') }}" value="{{ old('email', 'admin@material.com') }}" required>
               </div>
               @if ($errors->has('email'))
                 <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">

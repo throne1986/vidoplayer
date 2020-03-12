@@ -12,12 +12,12 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 let container;
 let  iframe ;
-var adtype = "[adtype]";
-var codeid = "[codeid]";
-var videofornat = "[videoformat]";
-var domainurl = "[domainurl]";
+var adtype = "InPage";
+var codeid = "tMQkQw3g0";
+var videofornat = "OUTSTREAM VIDEO PLAYER";
+var domainurl = "https://player.videomill.co/";
 var tagurl = "[tagurl]";
-var codeid = "[codeid]";
+var codeid = "tMQkQw3g0";
 var addcontainer;
    
 var fixedadContainer = document.createElement("div");
